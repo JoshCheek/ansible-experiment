@@ -1,18 +1,18 @@
 ---
 
-- name: Remove older Ruby22
+- name: Remove older Ruby20
   yum:
     name=ruby20
     state=absent
 
-- name: Install Ruby22
+- name: Install Ruby23
   yum:
-    name=ruby22
+    name=ruby23
     state=present
 
-- name: Install ruby22-devel
+- name: Install ruby23-devel
   yum:
-    name=ruby22-devel
+    name=ruby23-devel
     state=present
 
 - name: Install postgres
