@@ -3,14 +3,14 @@
 - name: Configure Server with Ruby
   hosts: all
   remote_user: ec2-user
-  sudo: yes
+  become: yes
   roles:
     - ruby
 
 - name: Install Rails Application
   hosts: all
   remote_user: ec2-user
-  sudo: no
+  become: no
   roles:
     - app
   environment:
