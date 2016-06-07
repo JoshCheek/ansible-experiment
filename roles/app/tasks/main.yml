@@ -2,8 +2,9 @@
 
 - name: Clone application from git
   git:
-    dest=/tmp/rails_test_project
-    repo=https://github.com/cornaholic/rails_test_project.git
+    dest=/home/ec2-user/app
+    repo=https://github.com/JoshCheek/ec2-experiment.git
+    version=master
 
 - name: Install bundler
   gem:
@@ -12,27 +13,12 @@
 
 - name: Bundler Install
   bundler:
-    chdir=/tmp/rails_test_project
+    chdir=/home/ec2-user/app
     executable=~/bin/bundler
     state=present
     gemfile=Gemfile
 
-- name: Create DB
+- name: Start Server
   command: >
-    chdir=/tmp/rails_test_project
-    /home/ec2-user/bin/bundle exec rake db:create
-
-- name: Migrate DB
-  command: >
-    chdir=/tmp/rails_test_project
-    /home/ec2-user/bin/bundle exec rake db:migrate
-
-- name: Seed DB
-  command: >
-    chdir=/tmp/rails_test_project
-    /home/ec2-user/bin/bundle exec rake db:seed
-
-- name: Start Rails Server
-  command: >
-    chdir=/tmp/rails_test_project
-    rails server --binding=0.0.0.0
+    chdir=/home/ec2-user/app
+    bin/restart

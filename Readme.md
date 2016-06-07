@@ -27,7 +27,7 @@ Steps:
 
 ### Configure it with Ansible
 
-* Install ansible
+* Install ansible (this works on my Mac)
 
   ```
   $ brew install ansible
