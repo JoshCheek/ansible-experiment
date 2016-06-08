@@ -21,4 +21,4 @@
 - name: Start Server
   command: >
     chdir=/home/ec2-user/app
-    bin/restart
+    bin/start
